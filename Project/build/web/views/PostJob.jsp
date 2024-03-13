@@ -37,9 +37,9 @@
                     <td>Select job:</td>
                     <td>
                         <select name="txtSelectJob" required="">
-                            <option value="4">IT</option>
-                            <option value="3">clean</option>
-                            <option value="2">boss</option>
+                            <option value="8">IT</option>
+                            <option value="5">clean</option>
+                            <option value="4">boss</option>
                         </select>
                         <br/>
                     </td>

@@ -16,7 +16,7 @@
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap"
               rel="stylesheet">
-
+        
         <!-- Css Styles -->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -94,8 +94,8 @@
                             <div class="col-lg-6">
                                 <div class="hero__text">
                                     <h5>Starting At Only $ 2.8/month</h5>
-                                    <h2>Welcome to the best<br /> hosting company</h2>
-                                    <a href="#" class="primary-btn">Get started now</a>
+                                    <h2>Welcome to the best<br />Company</h2>
+                                    <a href="/Project_SWP/JobPostList" class="primary-btn">Get started now</a>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -112,8 +112,8 @@
                             <div class="col-lg-6">
                                 <div class="hero__text">
                                     <h5>Starting At Only $ 2.8/month</h5>
-                                    <h2>Welcome to the best<br /> hosting company</h2>
-                                    <a href="#" class="primary-btn">Get started now</a>
+                                    <h2>Welcome to the best<br />Company</h2>
+                                    <a href="/Project_SWP/JobPostList" class="primary-btn">Get started now</a>
                                 </div>
                             </div>
                             <div class="col-lg-6">

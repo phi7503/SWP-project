@@ -80,10 +80,6 @@
         <servlet-name>DeletePost</servlet-name>
         <servlet-class>Controller.DeletePost</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>EmployeeCVServlet</servlet-name>
-        <servlet-class>Controller.EmployeeCVServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -163,9 +159,5 @@
     <servlet-mapping>
         <servlet-name>DeletePost</servlet-name>
         <url-pattern>/DeletePost</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EmployeeCVServlet</servlet-name>
-        <url-pattern>/EmployeeCVServlet</url-pattern>
     </servlet-mapping>
 </web-app>

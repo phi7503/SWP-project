@@ -3,37 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/SWP-project/Project/src/java/DAL/JobPostDAO.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/DAL/EmployeeCVDAO.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/DAL/CompanyDAO.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/SignUpController.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Model/Company.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/EmployeeCVServlet.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/DeleteComSer.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/JobPostList.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/UpdateJobPost.java</file>
-            <file>file:/D:/SWP-project/Project/web/views/JobList.jsp</file>
-            <file>file:/D:/SWP-project/Project/web/views/JobPostDetail.jsp</file>
-            <file>file:/D:/SWP-project/Project/web/index.html</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/LoginComServlet.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/ForgotPasswordController.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/JobListComServlet.java</file>
-            <file>file:/D:/SWP-project/Project/web/views/JobSearch.jsp</file>
-            <file>file:/D:/SWP-project/Project/src/java/DAL/AuthenticationDAO.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Model/EmployeeCV.java</file>
-            <file>file:/D:/SWP-project/Project/web/views/EmployeeCV.jsp</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/HomeControllerServlet.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/JobDetailServlet.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/JobPostServlet.java</file>
-            <file>file:/D:/SWP-project/Project/web/views/JobListCom.jsp</file>
-            <file>file:/D:/SWP-project/Project/src/java/DAL/SearchDAO.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/DAL/DBContext.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/DeleteJobPost.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/SearchServlet.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/LoginServlet.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Model/JobPost.java</file>
-            <file>file:/D:/SWP-project/Project/src/java/Controller/SignupServlet.java</file>
-            <file>file:/D:/SWP-project/Project/web/views/PostJob.jsp</file>
+            <file>file:/D:/SWP301/SWP-project/Project_SWP/Project/web/views/JobSearch.jsp</file>
+            <file>file:/D:/SWP301/SWP-project/Project_SWP/Project/src/java/DAL/SearchDAO.java</file>
+            <file>file:/D:/SWP301/SWP-project/Project_SWP/Project/src/java/Controller/LoginComServlet.java</file>
+            <file>file:/D:/SWP301/SWP-project/Project_SWP/Project/src/java/Controller/SearchServlet.java</file>
+            <file>file:/D:/SWP301/SWP-project/Project_SWP/Project/web/views/HomePageJS.jsp</file>
+            <file>file:/D:/SWP301/SWP-project/Project_SWP/Project/web/views/HomePage.jsp</file>
+            <file>file:/D:/SWP301/SWP-project/Project_SWP/Project/src/java/Controller/JobPostList.java</file>
+            <file>file:/D:/SWP301/SWP-project/Project_SWP/Project/web/index.html</file>
+            <file>file:/D:/SWP301/SWP-project/Project_SWP/Project/web/views/JobList.jsp</file>
         </group>
     </open-files>
 </project-private>

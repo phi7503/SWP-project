@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <table>  
+            <tr>
+                <td id="loginTd">
+                    <button onclick="showLoginOptions()">
+                        Login
+                    </button>
+                </td>
+                <td id="signupTd">    
+                    <button onclick="window.location.href = '/Project_SWP/SignupServlet'">
+                        Signup
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+        <script defer>
+            function showLoginOptions() {
+                var loginTd = document.getElementById('loginTd');
+                var signupTd = document.getElementById('signupTd');
+
+
+                loginTd.innerHTML = '';
+
+                signupTd.innerHTML = '';
+
+                var youreText = document.createElement('div');
+                youreText.innerHTML = "You're...";
+                youreText.style.textAlign = 'center';
+
+
+                var jobSeekerButton = document.createElement('button');
+                jobSeekerButton.innerHTML = 'Job Seeker';
+                jobSeekerButton.onclick = function () {
+                    window.location.href = '/Project_SWP/LoginServlet';
+                };
+
+                var companyButton = document.createElement('button');
+                companyButton.innerHTML = 'Company';
+                companyButton.onclick = function () {
+                    window.location.href = '/Project_SWP/LoginComServlet';
+                };
+
+
+
+                loginTd.appendChild(youreText);
+                loginTd.appendChild(jobSeekerButton);
+                loginTd.appendChild(companyButton);
+
+            }
+        </script>
+    </body>
+
+
+</html>

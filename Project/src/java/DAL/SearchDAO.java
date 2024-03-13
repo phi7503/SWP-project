@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DAL;
 
 import java.sql.PreparedStatement;
@@ -12,10 +8,7 @@ import java.util.List;
 import Model.*;
 import java.sql.Connection;
 
-/**
- *
- * @author FPT
- */
+
 public class SearchDAO {
 
     public List<Category> getCategory() throws SQLException, ClassNotFoundException {
@@ -54,7 +47,45 @@ public class SearchDAO {
         }
         return categories;
     }
+    
+    public List<Company> getLocation() throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<Company> Company = new ArrayList<>();
 
+        try {
+            // Connect to the database
+            con = DBContext.makeConnection();
+            if (con != null) {
+                // Create SQL String
+                String sql = "select * FROM Company";
+                // Create Statement
+                stm = con.prepareStatement(sql);
+                // Execute Query
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    Company com = new Company();
+                    com.setLocation(rs.getString("Location"));
+                    Company.add(com);
+                }
+            }
+        } finally {
+            // Close resources
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return Company;
+    }
+    
+    
     public List<JobPost> getJobPostsByCategory(String categoryName) throws SQLException, ClassNotFoundException {
         Connection con = null;
         PreparedStatement stm = null;
@@ -68,8 +99,8 @@ public class SearchDAO {
             if (con != null) {
                 // Create SQL String
                 String sql = "select *  FROM Job_Category join \n"
-                        + "   job on job.Category = Job_Category.CategoryName join\n" +
-                "   JobPost on JobPost.JobID = job.JobID where Job_Category.CategoryName = ? ";
+                        + "   job on job.Category = Job_Category.CategoryName join\n"
+                        + "   JobPost on JobPost.JobID = job.JobID where Job_Category.CategoryName = ? ";
 
                 // Create Statement
                 stm = con.prepareStatement(sql);
@@ -81,7 +112,6 @@ public class SearchDAO {
                 // Process Result
                 while (rs.next()) {
                     // Create JobPost object and add to the list
-                    System.out.println("DAL.SearchDAO.getJobPostsByCategory()");
                     JobPost jobPost = new JobPost();
                     jobPost.setDescription(rs.getString("Description"));
                     jobPost.setTitle(rs.getString("Title"));
@@ -107,59 +137,58 @@ public class SearchDAO {
 
         return jobPosts;
     }
-    
-    public List<JobPost> getJobPostsByName(String jobName) throws SQLException, ClassNotFoundException {
-    Connection con = null;
-    PreparedStatement stm = null;
-    ResultSet rs = null;
-    List<JobPost> jobPosts = new ArrayList<>();
 
-    try {
-        // Connect to the database
-        con = DBContext.makeConnection();
+    public List<JobPost> getJobPostsByLocation(String location) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<JobPost> jobPosts = new ArrayList<>();
 
-        if (con != null) {
-            // Create SQL String for searching by job name
-            String sql = "SELECT * FROM JobPost WHERE Title LIKE ?";
+        try {
+            // Connect to the database
+            con = DBContext.makeConnection();
 
-            // Create Statement
-            stm = con.prepareStatement(sql);
-            stm.setString(1, "%" + jobName + "%"); // Use LIKE for partial matching
+            if (con != null) {
+                // Create SQL String
+                String sql = "select * FROM JobPost\n"
+                        + "join   job on job.JobID = JobPost.JobID\n"
+                        + "join  Company on JobPost.ComId = Company.ComId where Location = ?";
 
-            // Execute Query
-            rs = stm.executeQuery();
+                // Create Statement
+                stm = con.prepareStatement(sql);
+                stm.setString(1, location);
 
-            // Process Result
-            while (rs.next()) {
-                // Create JobPost object and add to the list
-                JobPost jobPost = new JobPost();
-                jobPost.setJobPostID(rs.getInt("JobPostID"));
-                jobPost.setDescription(rs.getString("Description"));
-                jobPost.setTitle(rs.getString("Title"));
-                jobPost.setSalary(rs.getInt("Salary"));
-                jobPost.setPostedDate(rs.getString("PostedDate"));
-                jobPost.setRequirements(rs.getString("Requirements"));
-                jobPost.setComID(rs.getString("ComID"));
-                jobPost.setIsdeleted(rs.getBoolean("isDeleted"));
-                String companyName = rs.getString("ComName");
-                jobPost.setCompanyName(companyName);
-                jobPosts.add(jobPost);
+                // Execute Query
+                rs = stm.executeQuery();
+
+                // Process Result
+                while (rs.next()) {
+                    // Create JobPost object and add to the list
+                    JobPost jobPost = new JobPost();
+                    jobPost.setDescription(rs.getString("Description"));
+                    jobPost.setTitle(rs.getString("Title"));
+                    jobPost.setSalary(rs.getInt("Salary"));
+                    jobPost.setPostedDate(rs.getString("PostedDate"));
+                    jobPost.setRequirements(rs.getString("Requirements"));
+                    jobPost.setComID(rs.getString("ComID"));
+                    jobPosts.add(jobPost);
+                }
+            }
+        } finally {
+            // Close resources in reverse order of their creation
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
             }
         }
-    } finally {
-        // Close resources
-        if (rs != null) {
-            rs.close();
-        }
-        if (stm != null) {
-            stm.close();
-        }
-        if (con != null) {
-            con.close();
-        }
+
+        return jobPosts;
     }
 
-    return jobPosts;
 }
-    
-}
+

@@ -101,10 +101,10 @@ public class JobPostDAO {
             if (con != null) {
                 String sql = "UPDATE JobPost SET isDeleted = CASE WHEN isDeleted = 1 THEN 0 ELSE 1 END "
                         + "WHERE jobPostID = ?";
-                        
                 stm = con.prepareStatement(sql);
                 stm.setInt(1, jobPost.getJobPostID());
                 int rowsAffected = stm.executeUpdate();
+                System.out.println(jobPost.getJobPostID());
                 return rowsAffected > 0;
             }
         } finally {

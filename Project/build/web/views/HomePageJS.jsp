@@ -1,283 +1,255 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="java.util.List, Model.*, DAL.*"%>
-<%@ page import="javax.servlet.http.*" %>
-<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="Deerhost Template">
-        <meta name="keywords" content="Deerhost, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>DEERHOST | Template</title>
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .spacer {
+                background-color: rgb(119, 151, 184);
+            }
 
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap"
-              rel="stylesheet">
-
-        <!-- Css Styles -->
-        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-        <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-        <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-        <link rel="stylesheet" href="css/flaticon.css" type="text/css">
-        <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-        <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-        <link rel="stylesheet" href="css/style.css" type="text/css">
+            .full-height {
+                height: 100vh;
+            }
+        </style>
     </head>
 
     <body>
-        <!-- Page Preloder -->
-        <div id="preloder">
-            <div class="loader"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Kho?ng tr?ng bÍn tr·i -->
+                <div class="col-1 spacer full-height"> ?? t?m sau chËn j thÏ chËn</div>
+                <!-- ph?n 1 -->
+                <div class="col-10">
+                    <!-- ph?n 1.1 -->
+                    <div class="row">
+                        <div class="col" style="background: linear-gradient(to right, #0077FF, #87CEEB);">
+                            <div class="row">
+                                <div class="col-2 d-flex align-items-center justify-content-center">
+                                    <!-- Ph?n 1.1 -->
+                                    <img src="link_to_your_logo_image" alt="Logo" style="max-height: 100px;"> <!-- logo -->
+                                </div>
+                                <div class="col-8 d-flex align-items-center justify-content-center">
+                                    <!-- Ph?n gi?a -->
+                                    <p class="text-center font-italic">olala</p> <!-- ?o?n gi?i thi?u -->
+                                </div>
+                                <div class="col-2 d-flex align-items-center justify-content-center">
+                                    <!-- Ph?n 1.2 -->
+                                    <button class="btn btn-outline-orange"> 
+                                        <%
+// Retrieve the fullname from the session
+String fullname = (String) session.getAttribute("fullname");
+
+// Check if the fullname is not null
+if (fullname != null) {
+out.println(fullname);
+} 
+                                        %>
+                                    </button>
+                                    <!-- N˙t b?m ch?a bi?t ?? l‡m gÏ nh?ng c? ?? ?Û-->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- ph?n 1.2 -->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="/Project_SWP/HomeControllerServlet">Home</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Project_SWP/SearchServlet" >
+                                            Search
+                                        </a>
+                                    </li>
+
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Project_SWP/JobPostList" >
+                                            Job List
+                                        </a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownExperiance"
+                                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Experience
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownExperiance">
+                                            <li><a class="dropdown-item" href="#">experience 1</a></li>
+                                            <li><a class="dropdown-item" href="#">experience 2</a></li>
+                                            <li><a class="dropdown-item" href="#">experience 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPosition"
+                                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Position
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownPosition">
+                                            <li><a class="dropdown-item" href="#">Position 1</a></li>
+                                            <li><a class="dropdown-item" href="#">Position 2</a></li>
+                                            <li><a class="dropdown-item" href="#">Position 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown" id="salaryDropdown">
+                                        <a class="nav-link" href="#" id="navbarDropdownSalary" role="button"
+                                           data-bs-toggle="modal" data-bs-target="#salaryModal">
+                                            Salary
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="modal fade" id="salaryModal" tabindex="-1" aria-labelledby="salaryModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="salaryModalLabel">Set Salary Range</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label for="salaryRange">Salary Range:</label>
+                                                <input type="range" class="form-range" id="salaryRange" min="0" max="100000" step="1000">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Apply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </nav>
+                    <div class="row" style="background-image: url('${pageContext.request.contextPath}/images/banner.jpg'); background-size: cover; background-position: center; padding: 10px; height: 25%;">
+                        <div class="col-3 align-items-center justify-content-end">
+                            <img src="${pageContext.request.contextPath}/img/logo.png" alt="Logo" style="width: 100%; height: auto;">
+                            <p style="color: #black; margin: 0;">?i tÏm vc ?Í th?t nghiÍp r m‡ c? ch?i</p>
+                            <p style="color: #black; margin: 0;">Nh?p t? khÛa ?? tÏm ki?m</p>
+                            <p style="color: #black; margin: 0;">Nh?p t? khÛa ?? tÏm ki?m</p>
+                            <p style="color: #black; margin: 0;">Nh?p t? khÛa ?? tÏm ki?m</p>
+                        </div>
+                        <div class="col-7 d-flex align-items-center rounded-start">
+                            <input type="text" class="form-control form-control-dark" placeholder="Search...">
+                        </div>
+                        <div class="col-1 d-flex align-items-center justify-content-center rounded-end">
+                            <button class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col">
+                            Ph?n 2
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Ph?n 3
+                        </div>
+                    </div>
+                </div>
+                <!-- Kho?ng tr?ng bÍn ph?i -->
+                <div class="col-1 spacer full-height"></div>
+            </div>
         </div>
 
-
-
-        <!-- Header Section Begin -->
-        <header class="header-section">
-            <div class="header__info">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="header__info-right">
-                                <ul>
-                                    <li><a href="#" onclick="showLoginOptions()"><span class="fa fa-user"></span>Login</a></li>
-                                    <li><a href="/Project_SWP/SignUpController"><span class="fa fa-user"></span> Sign Up </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3">
-                        <div class="header__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-9 col-md-9">
-                        <nav class="header__menu">
-                            <ul>
-                                <li class="active"><a href="/Project_SWP/HomeControllerServlet">Home</a></li>
-                                <li><a href="./about.html">Team</a></li>
-                                <li><a href="/Project_SWP/SearchServlet">Search</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="./pricing.html">Pricing</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="/Project_SWP/JobPostList">Job Post</a></li>
-                                <li><a href="./contact.html">Contact</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="canvas__open">
-                    <span class="fa fa-bars"></span>
-                </div>
-            </div>
-        </header>
-        <!-- Header End -->
-
-        <!-- Hero Section Begin -->
-        <section class="hero-section">
-            <div class="hero__slider owl-carousel">
-                <div class="hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="hero__text">
-                                    <h5>Starting At Only $ 2.8/month</h5>
-                                    <h2>Welcome to the best<br /> hosting company</h2>
-                                    <a href="#" class="primary-btn">Get started now</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="hero__img">
-                                    <img src="img/hero/hero-right.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="hero__text">
-                                    <h5>Starting At Only $ 2.8/month</h5>
-                                    <h2>Welcome to the best<br /> hosting company</h2>
-                                    <a href="#" class="primary-btn">Get started now</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="hero__img">
-                                    <img src="img/hero/hero-right.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Hero Section End -->
-
-        <!-- Register Domain Section Begin -->
-        <section class="register-domain spad">
-            <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="register__text">
-                            <div class="section-title">
-                                <h3>Register Your Domain Now!</h3>
-                            </div>
-                            <div class="register__form">
-                                <form action="#">
-                                    <input type="text" placeholder="ex: cloudhost">
-                                    <div class="change__extension">
-                                        categories
-                                        <ul>
-                                            <li>.net</li>
-                                            <li>.org</li>
-                                            <li>.me</li>
-                                        </ul>
-                                    </div>
-                                    <button type="submit" class="site-btn">Search</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Register Domain Section End -->
-
-
-
-
-        <!-- Choose Plan Section Begin -->
-        <section class="choose-plan-section spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <img src="img/choose-plan.png" alt="">
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="plan__text">
-                            <h3>up to 70% discount with free domain name registration included!</h3>
-                            <ul>
-                                <li><span class="fa fa-check"></span> FREE Domain Name</li>
-                                <li><span class="fa fa-check"></span> FREE Email Address</li>
-                                <li><span class="fa fa-check"></span> Plently of disk space</li>
-                                <li><span class="fa fa-check"></span> FREE Website Bullder</li>
-                                <li><span class="fa fa-check"></span> FREE Marketing Tools</li>
-                                <li><span class="fa fa-check"></span> 1-Click WordPress Install</li>
-                            </ul>
-                            <a href="#" class="primary-btn">Get start now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Choose Plan Section End -->
-
-        <!-- Footer Section Begin -->
-        <footer class="footer-section">
-            <div class="footer__text set-bg" data-setbg="img/footer-bg.png">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="footer__text-about">
-                                <div class="footer__logo">
-                                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida viverra maecen
-                                    lacus vel facilisis. </p>
-                                <div class="footer__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-youtube-play"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-sm-6">
-                            <div class="footer__text-widget">
-                                <h5>Company</h5>
-                                <ul>
-                                    <li><a href="#">Company</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Press & Media</a></li>
-                                    <li><a href="#">News / Blogs</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-sm-6">
-                            <div class="footer__text-widget">
-                                <h5>Hosting</h5>
-                                <ul>
-                                    <li><a href="#">Web Hosting</a></li>
-                                    <li><a href="#">Reseller Hosting</a></li>
-                                    <li><a href="#">VPS Hosting</a></li>
-                                    <li><a href="#">Dedicated Servers</a></li>
-                                    <li><a href="#">Cloud Hosting</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="footer__text-widget">
-                                <h5>cONTACT US</h5>
-                                <ul class="footer__widget-info">
-                                    <li><span class="fa fa-map-marker"></span> 500 South Main Street Los Angeles,<br />
-                                        ZZ-96110 USA</li>
-                                    <li><span class="fa fa-mobile"></span> 125-711-811 | 125-668-886</li>
-                                    <li><span class="fa fa-headphones"></span> Support.hosting@gmail.com</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer__text-copyright">
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Footer Section End -->
-
-        <!-- Js Plugins -->
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.slicknav.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- Script JS c?a Bootstrap (t˘y ch?n, n?u b?n mu?n s? d?ng c·c tÌnh n?ng JavaScript c?a Bootstrap) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <script>
-                                function showLoginOptions() {
-                                    Swal.fire({
-                                        title: 'You are ',
-                                        showDenyButton: true,
-                                        showCancelButton: false,
-                                        confirmButtonText: `jobSeeker`,
-                                        denyButtonText: `Company`,
-                                    }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            window.location.href = "/Project_SWP/LoginServlet"; // ƒêƒÉng nh·∫≠p b·∫±ng jobseeker
-                                        } else if (result.isDenied) {
-                                            window.location.href = "/Project_SWP/LoginComServlet"; // ƒêƒÉng nh·∫≠p b·∫±ng company
-                                        }
-                                    });
-                                }
+            document.addEventListener("DOMContentLoaded", function () {
+                let dropdowns = document.querySelectorAll(".navbar-nav .dropdown");
+                dropdowns.forEach(function (dropdown) {
+                    dropdown.addEventListener("mouseover", function () {
+                        let dropdownMenu = this.querySelector(".dropdown-menu");
+                        dropdownMenu.style.display = "block";
+                    });
+                    dropdown.addEventListener("mouseout", function () {
+                        let dropdownMenu = this.querySelector(".dropdown-menu");
+                        dropdownMenu.style.display = "none";
+                    });
+                });
+            });
+
+            var salaryModal = new bootstrap.Modal(document.getElementById('salaryModal'));
+            document.getElementById('salaryDropdown').addEventListener('click', function () {
+                salaryModal.show();
+            });
         </script>
+        <style>
+            .navbar-nav {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .navbar-nav .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .nav-link.dropdown-toggle.active,
+            .nav-link.dropdown-toggle:hover {
+                color: #0077FF !important;
+                /* M‡u xanh bi?n ??m khi di chu?t */
+            }
+
+            .dropdown-item.active,
+            .dropdown-item:hover {
+                background-color: #0077FF !important;
+                /* M‡u n?n xanh bi?n ??m khi di chu?t */
+                color: #fff !important;
+                /* M‡u ch? tr?ng khi di chu?t */
+            }
+            .form-range {
+                width: 100%;
+            }
+
+            /* Thi?t l?p m‡u c?a con tr? tr??t */
+            .form-range::-webkit-slider-thumb {
+                background-color: #0077FF;
+            }
+
+            /* Thi?t l?p m‡u xanh ??m cho ph?n ???c ch?n trÍn thanh tr??t */
+            .form-range::-webkit-slider-runnable-track {
+                background-color: rgba(0, 119, 255, 0.5);
+            }
+            .form-control-dark {
+                background-color: #74a8db;
+                color: #ffffff;
+                border: none;
+            }
+
+            .form-control-dark:focus {
+                box-shadow: none;
+            }
+
+            .btn-primary {
+                background-color: #d97b00;
+                border: none;
+                border-radius: 20px;
+            }
+            .btn-secondary {
+                background-color: #0077FF;
+                border: none;
+                border-radius: 20px;
+            }
+        </style>
+
+
+
     </body>
 
 </html>

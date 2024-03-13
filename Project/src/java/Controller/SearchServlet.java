@@ -23,8 +23,8 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String keyword = request.getParameter("keyword");
         SearchDAO dao = new SearchDAO();
-
         try {
             List<Category> categories = dao.getCategory();
             request.setAttribute("categories", categories);
@@ -32,34 +32,35 @@ public class SearchServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        try {
-            List<Company> companies = dao.getLocation();
-            request.setAttribute("companies", companies);
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        String category = request.getParameter("category");
-
-        // Lấy tham số "location" từ request
-        String location = request.getParameter("location");
 
         try {
-            // Kiểm tra xem tham số "category" được cung cấp hay không
-            if (category != null && !category.isEmpty()) {
-                List<JobPost> jobPosts = dao.getJobPostsByCategory(category);
-                request.setAttribute("jobPosts", jobPosts);
-            } else if (location != null && !location.isEmpty()) { // Nếu không, kiểm tra tham số "location" được cung cấp hay không
-                List<JobPost> jobPosts = dao.getJobPostsByLocation(location);
-                request.setAttribute("jobPosts", jobPosts);
-            } else {
-                // Nếu không có cả "category" và "location", không có gì để tìm kiếm
-                request.setAttribute("errorMessage", "Please provide either a category or a location.");
-            }
+            String category = request.getParameter("category");
+            List<JobPost> jobPosts = dao.getJobPostsByCategory(category);
+            request.setAttribute("jobPosts", jobPosts);
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(SearchServlet.class.getName()).log(Level.SEVERE, "Error retrieving job posts", ex);
+            Logger.getLogger(SearchServlet.class.getName()).log(Level.SEVERE, "Error retrieving job posts by category", ex);
             request.setAttribute("errorMessage", "An error occurred while retrieving job posts. Please try again later.");
         }
+        
+        try {
+        List<Category> categories = dao.getCategory();
+        request.setAttribute("categories", categories);
+    } catch (SQLException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    try {
+        // Kiểm tra nếu có từ khóa tìm kiếm
+        if (keyword != null && !keyword.isEmpty()) {
+            // Gọi phương thức tìm kiếm công việc theo từ khóa
+            List<JobPost> jobPosts = dao.getJobPostsByName(keyword);
+            request.setAttribute("jobPosts", jobPosts);
+        }
+    } catch (SQLException | ClassNotFoundException ex) {
+        Logger.getLogger(SearchServlet.class.getName()).log(Level.SEVERE, "Error retrieving job posts by keyword", ex);
+        request.setAttribute("errorMessage", "An error occurred while retrieving job posts. Please try again later.");
+    }
+
 
         request.getRequestDispatcher("/views/JobSearch.jsp").forward(request, response);
     }

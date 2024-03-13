@@ -19,7 +19,7 @@ public class DBContext implements Serializable{
                 + "//localhost:1433"
                 + ";databaseName=SWP_project;encrypt=true;trustServerCertificate=true";
         //3. Open Connection
-        Connection con=DriverManager.getConnection(url,"sa","Linhvip1");
+        Connection con=DriverManager.getConnection(url,"sa","123");
         return con;
     }
 }
